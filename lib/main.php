@@ -1186,7 +1186,7 @@ HTML;
 
 
       echo <<<HTML
-        <ol">
+        <ol>
           <li>{$str1}</li>
           <li>{$str2}</li>
           <li>{$str3}</li>
