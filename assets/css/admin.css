@@ -1,0 +1,16 @@
+.button.reset {
+  background: rgb(150, 3, 3);
+  border: 1px solid rgb(213, 3, 3);
+}
+
+.button.reset:focus,
+.button.reset:active,
+.button.reset:hover {
+  background: rgb(180, 3, 3);
+  border: 1px solid rgb(213, 3, 3);
+  box-shadow: none;
+}
+
+.asmh-transparency-slider {
+	width: 600px;
+}
