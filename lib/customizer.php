@@ -13,11 +13,11 @@ class Customizer
   {
     $path = $_SERVER['REQUEST_URI'];
 
-    if (strpos($path, '/asmh/styles/preview') === 0) {
+    if (strpos($path, '/asmh/styles/preview') !== false) {
       $this->generate_preview_css();
       exit;
     } else
-    if (strpos($path, '/asmh/styles') === 0) {
+    if (strpos($path, '/asmh/styles') !== false) {
       $this->generate_live_css();
       exit;
     }
