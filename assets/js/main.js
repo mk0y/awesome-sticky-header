@@ -56,10 +56,10 @@ var Asmh = (function() {
   }
 
 
-  Asmh.prototype.textSize = function(type, el) {
+  Asmh.prototype.textSize = function(el) {
     var $ = this.jq;
 
-    $('.asmh-preview .' + type).find('ul a, ul a > span, .logo').css({
+    $('.asmh-preview .middle').find('ul a').css({
       fontSize: $(el).val() + 'px'
     });
   }
@@ -188,9 +188,19 @@ var Asmh = (function() {
   }
 
 
-  Asmh.prototype.linkColor = function(type, el) {
+  Asmh.prototype.siteDescSize = function(el) {
+    var $ = this.jq,
+        preview = $('.asmh-preview .description');
+
+    preview.css({
+      fontSize: $(el).val() + 'px'
+    });
+  }
+
+
+  Asmh.prototype.linkColor = function(el) {
     var $ = this.jq;
-    var preview = $('.asmh-preview .' + type);
+    var preview = $('.asmh-preview .middle');
 
     preview.find('.primary > ul li a').css({
       color: '#' + $(el).val()
@@ -198,9 +208,9 @@ var Asmh = (function() {
   }
 
 
-  Asmh.prototype.backgroundImage = function(type, el) {
+  Asmh.prototype.backgroundImage = function(el) {
     var $ = this.jq;
-    var preview = $('.asmh-preview .' + type);
+    var preview = $('.asmh-preview .middle');
 
     preview.css({
       backgroundImage: 'url(' + $(el).val() + ')'
@@ -208,9 +218,9 @@ var Asmh = (function() {
   }
 
 
-  Asmh.prototype.backgroundRepeat = function(type, el) {
+  Asmh.prototype.backgroundRepeat = function(el) {
     var $ = this.jq;
-    var preview = $('.asmh-preview .' + type);
+    var preview = $('.asmh-preview .middle');
 
     preview.css({
       backgroundRepeat: $(el).val()
@@ -239,17 +249,17 @@ var Asmh = (function() {
   }
 
 
-  Asmh.prototype.borderColor = function(type, line, el) {
+  Asmh.prototype.borderColor = function(line, el) {
     var $ = this.jq;
-    var preview = $('.asmh-preview .' + type);
+    var preview = $('.asmh-preview .middle');
 
     preview.css('border-' + line + '-color', '#' + $(el).val());
   }
 
 
-  Asmh.prototype.borderWidth = function(type, line, el) {
+  Asmh.prototype.borderWidth = function(line, el) {
     var $ = this.jq;
-    var preview = $('.asmh-preview .' + type);
+    var preview = $('.asmh-preview .middle');
 
     preview.css('border-' + line + '-width', $(el).val() + 'px');
   }
@@ -394,7 +404,7 @@ var Asmh = (function() {
       header = $('.asmh-preview .middle');
       obj = $('.asmh-preview ul.sub-menu');
     } else {
-      header = $('.asmh-preview .' + type);
+      header = $('.asmh-preview .middle');
       obj = header;
     }
 
@@ -414,49 +424,11 @@ var Asmh = (function() {
   }
 
 
-  Asmh.prototype.stickyTransparency = function(el, type) {
-    var $ = this.jq,
-        header = $('.asmh-preview .' + type);
-
-    var obj;
-    if (type === 'submenu') {
-      obj = $('.asmh-preview ul.sub-menu');
-    } else {
-      obj = header;
-    }
-
-    asmhObject.settings[type + '_transparency_level_on_sticky'] = $(el).is(':checked');
-
-    if ($(el).is(':checked')) {
-      obj.css({backgroundColor: '#' + header.data('bgcolor')});
-    } else {
-      obj.removeAttr('style');
-    }
-  }
-
-
   Asmh.prototype.setTransparencySliders = function(type) {
     var $ = this.jq,
-      top = $('#asmh-slider-top'),
       submenu = $('#asmh-slider-submenu'),
       middle= $('#asmh-slider-middle'),
-      bottom = $('#asmh-slider-bottom'),
-      type = ['top', 'middle', 'bottom']
       self = this;
-
-    if (top.length) {
-      top.slider({
-        range: "max",
-        min: 0,
-        max: 100,
-        value: $('#asmh-slider-top-val').val(),
-        slide: function(event, ui) {
-          $('#asmh-slider-top-amount').text(ui.value);
-          $('#asmh-slider-top-val').val(ui.value);
-          self.setTransparency('top', ui.value);
-        }
-      });
-    }
 
     if (middle.length) {
       middle.slider({
@@ -482,20 +454,6 @@ var Asmh = (function() {
           $('#asmh-slider-submenu-amount').text(ui.value);
           $('#asmh-slider-submenu-val').val(ui.value);
           self.setTransparency('submenu', ui.value);
-        }
-      });
-    }
-
-    if (bottom.length) {
-      bottom.slider({
-        range: "max",
-        min: 0,
-        max: 100,
-        value: $('#asmh-slider-bottom-val').val(),
-        slide: function(event, ui) {
-          $('#asmh-slider-bottom-amount').text(ui.value);
-          $('#asmh-slider-bottom-val').val(ui.value);
-          self.setTransparency('bottom', ui.value);
         }
       });
     }
