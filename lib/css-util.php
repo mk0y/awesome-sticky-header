@@ -129,13 +129,6 @@ function _asmh_empty_s($val) {
 }
 <?php } ?>
 
-<?php if (!empty($s['middle_link_color'])) { ?>
-.asmh-preview .middle .brand
-{
-  color: <?php echo $c::to_color($s['middle_link_color']); ?>;
-}
-<?php } ?>
-
 <?php if (!empty($s['middle_hover_color'])) { ?>
 .asmh-preview .middle .brand:hover
 {
@@ -155,7 +148,7 @@ function _asmh_empty_s($val) {
 {
   font-style: normal;
   font-size: <?php echo $c::num_to_px($s['site_desc_font_size']); ?>;
-  line-height: 1;
+  line-height: 1.6;
   margin: 0;
 <?php if (!empty($s['site_desc_color'])) { ?>;
   color: <?php echo $c::to_color($s['site_desc_color']); ?>;
@@ -486,7 +479,7 @@ input:-webkit-autofill
 {
   margin: 5px 0 0 0;
   line-height: 1;
-  font-size: <?php echo $c::num_to_px($s['middle_text_size'] - 4); ?>;
+  font-size: <?php echo $c::num_to_px($s['middle_text_size'] - 6); ?>;
 }
 
 .asmh-preview .primary ul.sub-menu li:hover

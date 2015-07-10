@@ -187,6 +187,7 @@ function _asmh_empty_s($val) {
   float: left;
 <?php } ?>
   padding: <?php echo $s['brand_padding']; ?>px 0;
+  line-height: 1;
 }
 
 .asmh-header .brand
@@ -216,7 +217,7 @@ function _asmh_empty_s($val) {
   font-style: normal;
   font-size: <?php echo $c::num_to_px($s['site_desc_font_size']); ?>;
   margin: 0;
-  line-height: 1;
+  line-height: 1.6;
 <?php if (!empty($s['site_desc_color'])) { ?>;
   color: <?php echo $c::to_color($s['site_desc_color']); ?>;
 <?php } ?>
@@ -293,12 +294,36 @@ function _asmh_empty_s($val) {
 .asmh-header .primary > ul > li.current-menu-item,
 .asmh-header .primary > ul > li.current_page_item
 {
+<?php if ( $s['middle_transparency_level'] == 100 ) { ?>
   background-color: #<?php echo $s['middle_menu_item_background_active_color']?>;
+<?php } else { ?>
+  background-color: rgba(<?php
+      echo $c::hex2rgb(
+              $s['middle_menu_item_background_active_color'],
+              $s['middle_transparency_level']
+      ); ?>);
+<?php } ?>
 }
 
 .asmh-header .primary > ul > li:hover
 {
+<?php if ( $s['middle_transparency_level'] == 100 ) { ?>
   background-color: #<?php echo $s['middle_menu_item_background_color']?>;
+<?php } else { ?>
+  background-color: rgba(<?php
+      echo $c::hex2rgb(
+              $s['middle_menu_item_background_color'],
+              $s['middle_transparency_level']
+      ); ?>);
+<?php } ?>
+}
+
+@media (max-width: <?php echo $c::num_to_px($s['middle_hide_menu_width']); ?>)
+{
+  .asmh-header .primary > ul > li:hover
+  {
+    background-color: transparent;
+  }
 }
 
 .asmh-header .primary > ul > li.search:hover,
@@ -566,6 +591,10 @@ function _asmh_empty_s($val) {
 .asmh-header .middle .brand img
 {
   vertical-align: middle;
+}
+
+.asmh-header .middle .brand img
+{
   display: inline-block;
 }
 
@@ -721,13 +750,6 @@ function _asmh_empty_s($val) {
 {
   display: block;
 }
-
-<?php if (!empty($s['middle_link_color'])) { ?>
-.asmh-header .middle .brand
-{
-  color: <?php echo $c::to_color($s['middle_link_color']); ?>;
-}
-<?php } ?>
 
 <?php if (!empty($s['middle_hover_color'])) { ?>
 .asmh-header .middle .brand:hover,
