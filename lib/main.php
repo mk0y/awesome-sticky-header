@@ -871,13 +871,13 @@ HTML;
 ?>
     <input type="text"
       class="color {adjust:false}"
-      onchange="asmh.borderColor('<?php echo $type; ?>', '<?php echo $line; ?>', this)"
+      onchange="asmh.borderColor('<?php echo $line; ?>', this)"
       name="asmh_settings[<?php echo $type; ?>_<?php echo $line; ?>_border_color]"
       value="<?php echo $this->settings[$type.'_'.$line.'_border_color']; ?>">
 
     <input type="number" placeholder="<?php _e('Width', ASMH_LANG); ?>"
       style="width: 70px;"
-      onchange="asmh.borderWidth('<?php echo $type; ?>', '<?php echo $line; ?>', this)"
+      onchange="asmh.borderWidth('<?php echo $line; ?>', this)"
       name="asmh_settings[<?php echo $type; ?>_<?php echo $line; ?>_border_width]"
       value="<?php echo $this->settings[$type.'_'.$line.'_border_width']; ?>"> px
 <?php
@@ -938,7 +938,7 @@ HTML;
     $type = 'middle';
 ?>
     <input type="text" class="color {adjust:false}"
-    onchange="asmh.linkColor('<?php echo $type; ?>', this)"
+    onchange="asmh.linkColor(this)"
     name="asmh_settings[<?php echo $type; ?>_link_color]"
       value="<?php echo $this->settings[$type . '_link_color']; ?>">
 
@@ -979,7 +979,7 @@ HTML;
 ?>
     <input type="number"
       style="width: 70px;"
-      onchange="asmh.textSize('<?php echo $type; ?>', this)"
+      onchange="asmh.textSize(this)"
       name="asmh_settings[<?php echo $type; ?>_text_size]"
       value="<?php echo $this->settings[$type . '_text_size']; ?>"> px
 <?php
@@ -1042,7 +1042,7 @@ HTML;
     echo asmh_checkbox_tag(array(
       'name' => "asmh_settings[center_content_{$type}]",
       'value' => $this->settings["center_content_{$type}"],
-      'onchange' => "asmh.centerContent('{$type}', this)",
+      'onchange' => "asmh.centerContent(this)",
       'checked' => $this->settings["center_content_{$type}"]
     ));
   }
@@ -1146,7 +1146,6 @@ HTML;
   public function hamburger_color_func() {
 ?>
     <input type="text" class="color {adjust:false}"
-    onchange="asmh.hamburgerColor(this)"
     name="asmh_settings[hamburger_color]"
       value="<?php echo $this->settings['hamburger_color']; ?>">
 <?php
@@ -1186,7 +1185,7 @@ HTML;
 
 
       echo <<<HTML
-        <ol>
+        <ol">
           <li>{$str1}</li>
           <li>{$str2}</li>
           <li>{$str3}</li>
@@ -1239,8 +1238,8 @@ HTML;
                       'width' => '', // blank = 100%
                       'stretch' => true,
                       'contr_width' => '',
-                      'menu_padding' => 25,
-                      'brand_padding' => 20,
+                      'menu_padding' => 20,
+                      'brand_padding' => 10,
                       'use_genericons' => false,
                       'use_genericons_text' => false,
                       'sticky_animate' => true,
