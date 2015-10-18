@@ -2,8 +2,8 @@
 Contributors: markzero, nikolicdragan
 Tags: header, sticky header, awesome header, header, sticky menu, fixed header, submenus, header admin control, header options
 Requires at least: 4.2.2
-Tested up to: 4.2.2
-Stable tag: 1.0.0
+Tested up to: 4.3.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ For **support requests** please use our [dedicated support forums](http://awesom
 Get maximum control over your sticky header. Set your menu, submenus, secondary menu, search, your colors, backgrounds or transparency, your logo and much more!
 
 Live preview of your settings changes in plugin's page in admin area. After you change menu position, link colors, backgrounds, you can see it immediately how will it look on your website.
+
+If you need the whole header replacement including the sticky header, with Top and Bottom header parts and more menus and breadcrumbs, you can buy [PRO version](http://codecanyon.net/item/awesome-header/11358372) called [Awesome Header](http://awesomeheader.com/) or go to [Playground](http://awesomeheader.com/playground/) to check out demos of what common features it offers.
 
 = Settings =
 
@@ -104,7 +106,7 @@ If you are awesome developer, there is plenty of space to extend sticky header's
 
 == Installation ==
 1. Download the plugin from this page and extract it
-2. Copy the extracted awesomeheader directory to \"/wp-content/plugins/\" directory 
+2. Copy the extracted awesome-sticky-header directory to \"/wp-content/plugins/\" directory
 3. Activate the plugin through the \"Plugins\" menu in WordPress dashboard
 4. Done! You can visit your website and start scrolling to see sticky header in action; Setup your sticky header from Appearance > Awesome Header
 
@@ -113,10 +115,6 @@ If you are awesome developer, there is plenty of space to extend sticky header's
 = Where can I find settings? =
 
 In WordPress admin area, under Appearance -> Awesome Header.
-
-= Why are styles missing on local environment? =
-
-If you have your local development environment under e.g. http://localhost/wordpress it won't work unless you specify virtual host, e.g. http://myproject.dev.
 
 = Which PHP version do I need? =
 
@@ -136,6 +134,9 @@ You can also raise issues for possible improvements/ideas there.
 4. Playing with transparency and bottom border width & color
 
 == Changelog ==
+
+= 1.0.1 =
+* Add hover/active menu link color
 
 = 1.0.0 =
 * Initial release.

@@ -290,12 +290,13 @@ function _asmh_empty_s($val) {
 <?php } ?>
 }
 
+<?php if (!empty($s['middle_menu_item_background_active_color'])) { ?>
 .asmh-header .primary > ul > li.active,
 .asmh-header .primary > ul > li.current-menu-item,
 .asmh-header .primary > ul > li.current_page_item
 {
-<?php if ( $s['middle_transparency_level'] == 100 ) { ?>
-  background-color: #<?php echo $s['middle_menu_item_background_active_color']?>;
+<?php if ($s['middle_transparency_level'] == 100) { ?>
+  background-color: #<?php echo $s['middle_menu_item_background_active_color']; ?>;
 <?php } else { ?>
   background-color: rgba(<?php
       echo $c::hex2rgb(
@@ -304,6 +305,7 @@ function _asmh_empty_s($val) {
       ); ?>);
 <?php } ?>
 }
+<?php } ?>
 
 .asmh-header .primary > ul > li:hover
 {
@@ -762,9 +764,20 @@ function _asmh_empty_s($val) {
 <?php if (!empty($s['middle_active_color'])) { ?>
 .asmh-header .primary .current-menu-item > a,
 .asmh-header .primary .current-menu-parent > a,
-.asmh-header .primary .current-menu-ancestor > a
+.asmh-header .primary .current-menu-ancestor > a,
+.asmh-header .primary li.active > a
 {
   color: <?php echo $c::to_color($s['middle_active_color']); ?> !important;
+}
+<?php } ?>
+
+<?php if (!empty($s['middle_hover_active_color'])) { ?>
+.asmh-header .primary .current-menu-item:hover > a,
+.asmh-header .primary .current-menu-parent:hover > a,
+.asmh-header .primary .current-menu-ancestor:hover > a,
+.asmh-header .primary li.active:hover > a
+{
+  color: <?php echo $c::to_color($s['middle_hover_active_color']); ?> !important;
 }
 <?php } ?>
 

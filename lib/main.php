@@ -951,6 +951,11 @@ HTML;
     <input type="text" class="color {adjust:false}"
       name="asmh_settings[<?php echo $type; ?>_active_color]"
       value="<?php echo $this->settings[$type . '_active_color']; ?>">
+
+    <span style="margin-left: 7px;"><?php _e('Hover/Active', ASMH_LANG); ?></span>
+    <input type="text" class="color {adjust:false}"
+      name="asmh_settings[<?php echo $type; ?>_hover_active_color]"
+      value="<?php echo $this->settings[$type . '_hover_active_color']; ?>">
 <?php
   }
 
@@ -1284,6 +1289,7 @@ HTML;
                       'middle_menu_item_background_active_color' => null,
                       'middle_hover_color' => null,
                       'middle_active_color' => null,
+                      'middle_hover_active_color' => null,
                       'has_search' => true,
                       'has_secondary' => false,
                       'sticky_start' => 100,

@@ -1,8 +1,9 @@
 <?php
 /*
 Plugin Name: Awesome Sticky Header by DevCanyon
+Contributors: markzero,nikolicdragan
 Description: Awesome Sticky Header is a WordPress plugin that lets you control your sticky header.
-Version: 1.0.0
+Version: 1.0.1
 Plugin URI: https://awesomeheader.com/
 Author: DevCanyon
 Author URI: http://devcanyon.com/
@@ -37,7 +38,7 @@ if (defined('WP_INSTALLING') && WP_INSTALLING) {
 }
 
 
-define('ASMH_VERSION', '1.0.0');
+define('ASMH_VERSION', '1.0.1');
 define('ASMH_PATH', trailingslashit(dirname(__FILE__)));
 define('ASMH_URL', plugins_url('', __FILE__));
 define('ASMH_LANG', 'awesomeheader');
